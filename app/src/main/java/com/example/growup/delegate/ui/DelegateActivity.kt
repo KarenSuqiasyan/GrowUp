@@ -51,6 +51,21 @@ class DelegateActivity : AppCompatActivity() {
                 viewModel.seekBar = seekBar.progress.toFloat()
                 viewModel.save()
             }
+
+            removeButton.setOnClickListener {
+                viewModel.removeAllPreferences()
+                resetViews()
+            }
+        }
+    }
+
+    private fun resetViews() {
+        binding.apply {
+            nameEditText.setText("")
+            switcher.isChecked = false
+            switcher.text = getSwitcherText(false)
+            seekBar.progress = 0
+            seekBarValueTextView.text = "0"
         }
     }
 

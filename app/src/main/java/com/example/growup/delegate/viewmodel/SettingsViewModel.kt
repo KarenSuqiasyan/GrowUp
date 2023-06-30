@@ -19,4 +19,16 @@ class SettingsViewModel(private val store: SettingsRepository) : ViewModel() {
             store.seekBar = seekBar
         }
     }
+    fun removePreference(key: String) {
+        store.removePreference(key)
+        when (key) {
+            SettingsRepository.SWITCHER_KEY -> switcher = false
+            SettingsRepository.SEEK_BAR_KEY -> seekBar = 0f
+            SettingsRepository.NAME_KEY -> name = ""
+        }
+    }
+
+    fun removeAllPreferences() {
+        store.removeAllPreferences()
+    }
 }
