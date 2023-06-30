@@ -1,4 +1,4 @@
-package com.example.growup
+package com.example.growup.delegate
 
 import kotlin.reflect.KProperty
 
