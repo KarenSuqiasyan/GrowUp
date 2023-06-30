@@ -1,6 +1,7 @@
 package com.example.growup.delegate.ui
 
 import android.os.Bundle
+import android.widget.SeekBar
 import androidx.appcompat.app.AppCompatActivity
 import com.example.growup.databinding.ActivityDelegateBinding
 import com.example.growup.delegate.viewmodel.SettingsViewModel
@@ -25,6 +26,7 @@ class DelegateActivity : AppCompatActivity() {
             switcher.isChecked = viewModel.switcher
             switcher.text = getSwitcherText(viewModel.switcher)
             seekBar.progress = viewModel.seekBar.toInt()
+            seekBarValueTextView.text = seekBar.progress.toString()
         }
     }
 
@@ -34,6 +36,14 @@ class DelegateActivity : AppCompatActivity() {
                 viewModel.switcher = isChecked
                 switcher.text = getSwitcherText(isChecked)
             }
+
+            seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+                override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+                    seekBarValueTextView.text = progress.toString()
+                }
+                override fun onStartTrackingTouch(seekBar: SeekBar?) {}
+                override fun onStopTrackingTouch(seekBar: SeekBar?) {}
+            })
 
             saveButton.setOnClickListener {
                 viewModel.name = nameEditText.text.toString()
