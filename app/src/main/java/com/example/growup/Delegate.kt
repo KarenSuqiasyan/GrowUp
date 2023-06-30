@@ -23,15 +23,15 @@ class User {
 fun main() {
     val user = User()
 
-    user.username = "Alice"
-    println(user.username) // Output: Alice
+    user.username = "Valod"
+    println(user.username)
 
-    user.username = "" // Validation fails, sets default value
-    println(user.username) // Output: Default
+    user.username = ""
+    println(user.username)
 
-    user.username = "Bob12!" // Validation fails, sets default value
-    println(user.username) // Output: Default
+    user.username = "Poxos12!"
+    println(user.username)
 
-    user.username = "Charlie"
-    println(user.username) // Output: Charlie
+    user.username = "Saqulik"
+    println(user.username)
 }
