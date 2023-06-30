@@ -15,7 +15,7 @@ class SettingsRepository(private val preferences: SharedPreferences) {
     }
 
     fun removePreference(key: String) {
-        preferences.edit { remove(key) }
+        preferences.removePreference(key)
     }
 
     fun removeAllPreferences() {
